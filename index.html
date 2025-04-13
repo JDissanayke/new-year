@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>සුභ අලුත් අවුරුද්දක් වේවා!</title>
-  <!-- Tailwind CSS -->
+
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Google Fonts - Sinhala -->
+
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&display=swap" rel="stylesheet">
-  <!-- GSAP for animations -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-  <!-- p5.js for advanced animations -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
   <style>
     body {
@@ -28,14 +28,6 @@
       animation: pulse 4s ease-in-out infinite;
     }
 
-    /* .floral-petal {
-      position: absolute;
-      width: 40px;
-      height: 80px;
-      background: linear-gradient(to bottom, #f87171, #c53030);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      transform-origin: center bottom;
-    } */
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
@@ -93,17 +85,17 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center text-center p-4 relative overflow-hidden">
-  <!-- Traditional pattern overlay -->
+
   <div class="traditional-pattern"></div>
 
-  <!-- p5.js Fireworks Canvas -->
+
   <div id="fireworks-canvas"></div>
 
-  <!-- Main content container -->
+
   <div class="max-w-4xl w-full relative z-20">
-    <!-- Floral circle with animated petals -->
+
     <div class="floral-circle mx-auto mb-8">
-      <!-- Petals will be added by JavaScript -->
+
     </div>
 
     <h1 class="text-4xl md:text-6xl font-bold text-red-700 glow-text mb-6 z-10">
@@ -127,7 +119,7 @@
       </div>
     </div>
     
-    <!-- Decorative elements -->
+
     <div class="rice-sheaf" style="top: 10%; left: 5%;"></div>
     <div class="rice-sheaf" style="top: 15%; right: 5%; animation-delay: 1s;"></div>
     <div class="rice-sheaf" style="bottom: 10%; left: 10%; animation-delay: 2s;"></div>
@@ -136,14 +128,14 @@
 
 
   <script>
-    // Create floral petals
+
     const floralCircle = document.querySelector('.floral-circle');
     const petalCount = 12;
     const colors = ['#f87171', '#f59e0b', '#84cc16', '#10b981', '#3b82f6', '#8b5cf6'];
     
     for (let i = 0; i < petalCount; i++) {
       const petal = document.createElement('div');
-    //   petal.className = 'floral-petal';
+
       petal.style.left = '50%';
       petal.style.top = '50%';
       petal.style.transform = `translate(-50%, -50%) rotate(${i * (360 / petalCount)}deg) translateY(-70px)`;
@@ -157,7 +149,7 @@
       text.classList.remove("text-gray-800");
       text.classList.add("text-white");
     }}
-    // Countdown timer
+
     const countdownEl = document.getElementById("countdown");
     const afterEl = document.getElementById("after-countdown");
 
@@ -205,9 +197,9 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Celebration effects
+
     function startCelebration() {
-      // Animate the floral circle
+
       gsap.to(".floral-circle", {
         scale: 1.2,
         duration: 2,
@@ -216,20 +208,12 @@
         ease: "sine.inOut"
       });
 
-      // Animate petals
-    //   gsap.to(".floral-petal", {
-    //     rotation: "+=360",
-    //     duration: 15,
-    //     repeat: -1,
-    //     ease: "none"
-    //   });
 
-      // Start fireworks
       initFireworks();
       changeGreetingTextColor();
     }
 
-    // Advanced Fireworks with p5.js
+
     function initFireworks() {
       const sketch = (p) => {
         let fireworks = [];
@@ -256,12 +240,12 @@
         p.draw = () => {
           p.background(0, 0, 0, 25);
           
-          // Randomly launch fireworks
+
           if (p.random(1) < 0.05) {
             fireworks.push(new Firework());
           }
           
-          // Update and display all fireworks
+
           for (let i = fireworks.length - 1; i >= 0; i--) {
             fireworks[i].update();
             fireworks[i].show();
@@ -384,7 +368,7 @@
       new p5(sketch, 'fireworks-canvas');
     }
 
-    // Add floating traditional elements
+
     function addTraditionalElements() {
       const elements = [
         { emoji: '🌾', class: 'text-4xl text-yellow-600' },
@@ -410,7 +394,7 @@
       }
     }
 
-    // Initialize
+
     addTraditionalElements();
   </script>
 </body>
